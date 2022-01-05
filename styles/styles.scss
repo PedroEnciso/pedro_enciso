@@ -15,12 +15,9 @@ $font-text: "Poppins", sans-serif;
 }
 
 body {
-  overflow: hidden;
   background-color: $background-dark;
   color: $text-grey;
   font-family: $font-text;
-  position: relative;
-  overflow: hidden;
 }
 
 h1 {
@@ -63,7 +60,26 @@ p {
 }
 
 .btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: $accent;
+  color: $background-dark;
+}
+
+.btn-secondary {
+  border-radius: 5px;
+  padding: 0.45rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $accent;
+  background-color: transparent;
+  border: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.btn-secondary:hover {
+  background-color: $accent;
+  color: $background-dark;
 }
 
 .section_container {
@@ -109,5 +125,75 @@ nav {
 }
 
 .projects_section {
-  display: none;
+  position: relative;
+
+  h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    padding: 0rem 2rem;
+    width: fit-content;
+    background-color: $background-dark;
+  }
+
+  hr {
+    border: none;
+    height: 2px;
+    max-width: 400px;
+    width: 90%;
+    background-color: $accent;
+    margin: 0 auto;
+    position: absolute;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  .projects {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8rem;
+
+    .project {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
+
+      .project_image_container {
+        width: 100%;
+
+        img {
+          width: 100%;
+          max-width: 500px;
+          object-fit: cover;
+          border-radius: 5px;
+        }
+      }
+
+      .project_info_container {
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 400;
+        }
+
+        p {
+          margin-top: 1rem;
+          line-height: 1.9rem;
+        }
+
+        .project_buttons {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 1.5rem;
+
+          button {
+            display: block;
+          }
+        }
+      }
+    }
+  }
 }

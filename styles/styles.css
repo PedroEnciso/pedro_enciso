@@ -5,6 +5,22 @@
           box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+
 body {
   background-color: #2a2b2e;
   color: #b3b3b3;
@@ -142,6 +158,14 @@ nav p {
   z-index: -1;
 }
 
+@media only screen and (min-width: 600px) {
+  .hero_section::before {
+    left: 190px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
 .hero_section {
   margin-top: 3rem;
   height: 70vh;
@@ -153,6 +177,13 @@ nav p {
 
 .hero_section button {
   margin-top: 4rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .hero_section {
+    margin-top: 10vh;
+    height: 60vh;
+  }
 }
 
 .projects_section .projects {

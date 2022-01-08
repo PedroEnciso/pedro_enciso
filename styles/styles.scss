@@ -14,6 +14,18 @@ $font-text: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+
+  @media only screen and (min-width: 600px) {
+    font-size: 18px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
 body {
   background-color: $background-dark;
   color: $text-grey;
@@ -150,6 +162,13 @@ nav {
   z-index: -1;
 }
 
+@media only screen and (min-width: 600px) {
+  .hero_section::before {
+    left: 190px;
+    transform: translateX(-50%);
+  }
+}
+
 .hero_section {
   margin-top: 3rem;
   height: 70vh;
@@ -160,6 +179,13 @@ nav {
 
   button {
     margin-top: 4rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .hero_section {
+    margin-top: 10vh;
+    height: 60vh;
   }
 }
 

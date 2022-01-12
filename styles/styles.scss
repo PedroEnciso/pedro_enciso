@@ -1,6 +1,6 @@
 // color variables
 $text-grey: #b3b3b3;
-$text-white: #fff;
+$text-white: rgb(235, 235, 235);
 $accent: #8fc19a;
 $background-dark: #2a2b2e;
 
@@ -17,7 +17,7 @@ $font-text: "Poppins", sans-serif;
 html {
   font-size: 16px;
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 800px) {
     font-size: 18px;
   }
 
@@ -50,7 +50,7 @@ h2 {
   margin: 0 auto;
   padding: 0rem 2rem;
   width: fit-content;
-  color: $accent;
+  color: $text-white;
   background-color: $background-dark;
 }
 
@@ -68,7 +68,7 @@ hr {
   height: 2px;
   max-width: 400px;
   width: 90%;
-  background-color: $accent;
+  background-color: $text-white;
   margin: 0 auto;
   position: absolute;
   top: 1.25rem;
@@ -130,7 +130,7 @@ hr {
 
 .section-container {
   width: 90%;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
@@ -139,12 +139,55 @@ hr {
   margin-top: 8rem;
 }
 
+@media only screen and (min-width: 600px) {
+  .section-container {
+    width: 80%;
+  }
+}
+
 ///// Nav styles /////
 nav {
   margin-top: 1.5rem;
 
   p {
     color: $accent;
+  }
+}
+
+///// aside styles /////
+.aside {
+  display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  .aside {
+    display: block;
+    position: fixed;
+    top: 90%;
+    left: 5%;
+    transform: translateX(-50%);
+
+    .aside_icons {
+      margin-top: -12rem;
+      display: grid;
+      grid-gap: 1.5rem;
+      svg {
+        stroke: $text-white;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          stroke: $accent;
+        }
+      }
+    }
+
+    hr {
+      width: 10rem;
+      border: none;
+      height: 2px;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
   }
 }
 
@@ -169,6 +212,21 @@ nav {
   }
 }
 
+@media only screen and (min-width: 800px) {
+  .hero_section::after {
+    content: "";
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    position: absolute;
+    top: 225px;
+    left: 390px;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+}
+
 .hero_section {
   margin-top: 3rem;
   height: 70vh;
@@ -189,6 +247,13 @@ nav {
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .hero_section {
+    margin-top: 10vh;
+    height: 65vh;
+  }
+}
+
 .projects_section {
   .projects {
     margin-top: 3rem;
@@ -201,9 +266,14 @@ nav {
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: 2rem;
+      justify-items: center;
 
       .project_image_container {
         width: 100%;
+        max-height: 300px;
+        display: flex;
+        justify-content: center;
+        align-self: center;
 
         img {
           width: 100%;
@@ -238,12 +308,42 @@ nav {
   }
 }
 
+@media only screen and (min-width: 800px) {
+  .projects_section {
+    .projects {
+      .project {
+        .project_image_container {
+          width: 100%;
+          display: flex;
+        }
+
+        .project_info_container {
+          max-width: 600px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .projects_section {
+    .projects {
+      .project {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3rem;
+        //align-content: center;
+      }
+    }
+  }
+}
+
 .aboutme_container {
   .about_info_container {
     display: grid;
     margin-top: 3rem;
     grid-template-columns: 1fr;
     grid-gap: 2rem;
+    justify-items: center;
 
     .aboutme_image_container {
       width: 60%;
@@ -251,7 +351,6 @@ nav {
       aspect-ratio: 1/1;
       justify-self: center;
       border-radius: 50%;
-      border: 6px solid $accent;
       overflow: hidden;
 
       img {
@@ -282,9 +381,14 @@ nav {
 }
 
 .contact_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   p {
+    width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    text-align: center;
   }
 
   button {
@@ -296,6 +400,8 @@ nav {
 footer {
   margin-top: 10rem;
   margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
 
   p {
     text-align: center;
